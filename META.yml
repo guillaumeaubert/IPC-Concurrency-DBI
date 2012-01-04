@@ -1,0 +1,33 @@
+---
+abstract: "Controls how many instances of an application run in parallel, using DBI as the IPC method."
+author:
+  - 'Guillaume Aubert <aubertg@cpan.org>'
+build_requires:
+  Carp: 0
+  DBD::SQLite: 0
+  DBI: 0
+  Data::Dumper: 0
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3603'
+license: artistic
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: IPC-Concurrency-DBI
+provides:
+  IPC::Concurrency::DBI:
+    file: lib/IPC/Concurrency/DBI.pm
+    version: v1.0.0
+  IPC::Concurrency::DBI::Application:
+    file: lib/IPC/Concurrency/DBI/Application.pm
+    version: v1.0.0
+  IPC::Concurrency::DBI::Application::Instance:
+    file: lib/IPC/Concurrency/DBI/Application/Instance.pm
+    version: v1.0.0
+requires:
+  perl: 5.006
+resources:
+  license: http://opensource.org/licenses/artistic-license.php
+version: v1.0.0
