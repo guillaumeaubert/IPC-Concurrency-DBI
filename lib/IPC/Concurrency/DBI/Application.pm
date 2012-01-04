@@ -11,7 +11,8 @@ use IPC::Concurrency::DBI::Application::Instance;
 
 =head1 NAME
 
-IPC::Concurrency::DBI::Application;
+IPC::Concurrency::DBI::Application - Application identifier that represents the resource that will be limited.
+
 
 =head1 VERSION
 

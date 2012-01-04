@@ -9,7 +9,8 @@ use Carp;
 
 =head1 NAME
 
-IPC::Concurrency::DBI::Application::Instance;
+IPC::Concurrency::DBI::Application::Instance - Application instance that represents consumption of the limited resource.
+
 
 =head1 VERSION
 

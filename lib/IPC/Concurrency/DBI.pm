@@ -11,8 +11,7 @@ use IPC::Concurrency::DBI::Application;
 
 =head1 NAME
 
-IPC::Concurrency::DBI - Controls how many instances of an application run in
-parallel, using DBI as the IPC method.
+IPC::Concurrency::DBI - Control how many instances of an application run in parallel, using DBI as the IPC method.
 
 
 =head1 VERSION
