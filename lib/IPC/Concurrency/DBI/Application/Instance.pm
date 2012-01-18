@@ -226,8 +226,9 @@ L<http://search.cpan.org/dist/IPC-Concurrency-DBI/>
 
 =head1 ACKNOWLEDGEMENTS
 
-Thanks to Geeknet, Inc. L<http://www.geek.net> for funding the initial
-development of this code!
+Thanks to ThinkGeek (L<http://www.thinkgeek.com/>) and its corporate overlords
+at Geeknet (L<http://www.geek.net/>), for footing the bill while I eat pizza
+and write code for them!
 
 Thanks to Jacob Rose C<< <jacob at thinkgeek.com> >> for suggesting the idea of
 this module and brainstorming with me about the features it should offer.
