@@ -189,8 +189,7 @@ sub start_instance
 	
 	# If no row was affected, we've reached the maximum number of instances or
 	# the application ID has vanished. Either way, we can't start the instance.
-	return undef
-		unless $rows_affected == 1;
+	return unless $rows_affected == 1;
 	
 	return IPC::Concurrency::DBI::Application::Instance->new(
 		application => $self,
