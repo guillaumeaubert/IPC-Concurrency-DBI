@@ -107,9 +107,9 @@ sub new
 	my $verbose = delete( $args{'verbose'} );
 	
 	# Check parameters.
-	die "Argument 'database_handle' is required to create a new IPC::Concurrency::DBI object"
+	croak "Argument 'database_handle' is required to create a new IPC::Concurrency::DBI object"
 		unless defined( $database_handle );
-	die "Argument 'database_handle' is not a DBI object"
+	croak "Argument 'database_handle' is not a DBI object"
 		unless $database_handle->isa( 'DBI::db' );
 	
 	# Create the object.
@@ -178,13 +178,13 @@ sub register_application
 	my $maximum_instances = delete( $args{'maximum_instances'} );
 	
 	# Check parameters.
-	die 'The name of the application must be defined'
-		unless defined( $name ) && ( $name ne '' );
-	die 'The application name is longer than 255 characters'
+	croak 'The name of the application must be defined'
+		if !defined( $name ) || ( $name eq '' );
+	croak 'The application name is longer than 255 characters'
 		if length( $name ) > 255;
-	die 'The maximum number of instances must be defined'
-		unless defined( $maximum_instances ) && ( $maximum_instances ne '' );
-	die 'The maximum number of instances must be a strictly positive integer'
+	croak 'The maximum number of instances must be defined'
+		if !defined( $maximum_instances ) || ( $maximum_instances eq '' );
+	croak 'The maximum number of instances must be a strictly positive integer'
 		unless ( $maximum_instances =~ m/^\d+$/ ) && ( $maximum_instances > 0 );
 	
 	# Insert the new application.
@@ -273,7 +273,7 @@ sub create_tables
 		unless defined( $database_type );
 	
 	# Check parameters.
-	die 'This database type is not supported yet. Please email the maintainer of the module for help.'
+	croak 'This database type is not supported yet. Please email the maintainer of the module for help.'
 		unless $database_type =~ m/^(SQLite|MySQL)$/;
 	
 	# Create the table that will hold the list of applications as well as
