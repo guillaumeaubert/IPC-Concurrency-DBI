@@ -185,7 +185,7 @@ sub register_application
 	croak 'The maximum number of instances must be defined'
 		if !defined( $maximum_instances ) || ( $maximum_instances eq '' );
 	croak 'The maximum number of instances must be a strictly positive integer'
-		unless ( $maximum_instances =~ m/^\d+$/ ) && ( $maximum_instances > 0 );
+		if ( $maximum_instances !~ m/^\d+$/ ) || ( $maximum_instances <= 0 );
 	
 	# Insert the new application.
 	my $database_handle = $self->_get_database_handle();
