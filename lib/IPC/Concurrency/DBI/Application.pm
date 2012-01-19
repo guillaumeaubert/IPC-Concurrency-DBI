@@ -263,7 +263,7 @@ sub set_maximum_instances
 	
 	# Check parameters.
 	croak 'The maximum number of instances needs to be a strictly positive integer'
-		unless defined( $maximum_instances ) && ( $maximum_instances =~ m/^\d+$/ ) && ( $maximum_instances > 0 );
+		if !defined( $maximum_instances ) || ( $maximum_instances !~ m/^\d+$/ ) || ( $maximum_instances <= 0 );
 	
 	# Update the application information.
 	my $database_handle = $self->_get_database_handle();
