@@ -1,4 +1,10 @@
 Revision history for IPC-Concurrency-DBI
 
+1.0.1   01/18/2012
+        Cleanup to pass PerlCritic 'harsh'.
+        Made the acknowledgements section geekier.
+        Refactored to use Test::Dist::VersionSync for version checks.
+	Updated module descriptions.
+
 1.0.0   01/03/2012
         Public release.

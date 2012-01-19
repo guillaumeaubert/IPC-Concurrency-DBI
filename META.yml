@@ -1,5 +1,5 @@
 ---
-abstract: "Controls how many instances of an application run in parallel, using DBI as the IPC method."
+abstract: 'Control how many instances of an application run in parallel, using DBI as the IPC method.'
 author:
   - 'Guillaume Aubert <aubertg@cpan.org>'
 build_requires:
@@ -19,15 +19,15 @@ name: IPC-Concurrency-DBI
 provides:
   IPC::Concurrency::DBI:
     file: lib/IPC/Concurrency/DBI.pm
-    version: v1.0.0
+    version: v1.0.1
   IPC::Concurrency::DBI::Application:
     file: lib/IPC/Concurrency/DBI/Application.pm
-    version: v1.0.0
+    version: v1.0.1
   IPC::Concurrency::DBI::Application::Instance:
     file: lib/IPC/Concurrency/DBI/Application/Instance.pm
-    version: v1.0.0
+    version: v1.0.1
 requires:
   perl: 5.006
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: v1.0.0
+version: v1.0.1
