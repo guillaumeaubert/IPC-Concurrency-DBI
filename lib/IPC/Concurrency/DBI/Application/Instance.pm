@@ -66,9 +66,9 @@ sub new
 	my $application = delete( $args{'application'} );
 	
 	# Check parameters.
-	die "Argument 'application' is required to create a new IPC::Concurrency::DBI::Application::Instance object"
+	croak "Argument 'application' is required to create a new IPC::Concurrency::DBI::Application::Instance object"
 		unless defined( $application );
-	die "Argument '$application' is not an IPC::Concurrency::DBI::Application"
+	croak "Argument '$application' is not an IPC::Concurrency::DBI::Application"
 		unless $application->isa( 'IPC::Concurrency::DBI::Application' );
 	
 	# Create the object.
@@ -98,7 +98,7 @@ sub finish
 	my $database_handle = $application->_get_database_handle();
 	
 	# If the object has already been destroyed, we have a problem.
-	die 'The instance has already been marked as finished'
+	croak 'The instance has already been marked as finished'
 		if $self->{'finished'};
 	
 	# Decrement the count of running instances, provided that it's > 0.
@@ -137,7 +137,7 @@ sub _get_database_handle
 	my ( $self ) = @_;
 	
 	my $application = $self->get_application();
-	die 'The Instance object does not reference an application'
+	croak 'The Instance object does not reference an application'
 		unless defined( $application );
 	
 	return $application->_get_database_handle();
