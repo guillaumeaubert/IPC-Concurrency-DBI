@@ -1,0 +1,58 @@
+{
+   "abstract" : "Control how many instances of an application run in parallel, using DBI as the IPC method.",
+   "author" : [
+      "Guillaume Aubert <aubertg@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120530",
+   "license" : [
+      "artistic_1"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "IPC-Concurrency-DBI",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Carp" : "0",
+            "DBD::SQLite" : "0",
+            "DBI" : "0",
+            "Data::Dumper" : "0",
+            "Test::More" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.4"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "perl" : "5.006"
+         }
+      }
+   },
+   "provides" : {
+      "IPC::Concurrency::DBI" : {
+         "file" : "lib/IPC/Concurrency/DBI.pm",
+         "version" : "v1.0.1"
+      },
+      "IPC::Concurrency::DBI::Application" : {
+         "file" : "lib/IPC/Concurrency/DBI/Application.pm",
+         "version" : "v1.0.1"
+      },
+      "IPC::Concurrency::DBI::Application::Instance" : {
+         "file" : "lib/IPC/Concurrency/DBI/Application/Instance.pm",
+         "version" : "v1.0.1"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/artistic-license.php"
+      ]
+   },
+   "version" : "v1.0.1"
+}
