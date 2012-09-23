@@ -20,13 +20,13 @@ name: IPC-Concurrency-DBI
 provides:
   IPC::Concurrency::DBI:
     file: lib/IPC/Concurrency/DBI.pm
-    version: v1.0.1
+    version: v1.0.2
   IPC::Concurrency::DBI::Application:
     file: lib/IPC/Concurrency/DBI/Application.pm
-    version: v1.0.1
+    version: v1.0.2
   IPC::Concurrency::DBI::Application::Instance:
     file: lib/IPC/Concurrency/DBI/Application/Instance.pm
-    version: v1.0.1
+    version: v1.0.2
 requires:
   perl: 5.006
 resources:
@@ -34,4 +34,4 @@ resources:
   homepage: https://metacpan.org/release/IPC-Concurrency-DBI
   license: http://www.perlfoundation.org/artistic_license_1_0
   repository: https://github.com/guillaumeaubert/IPC-Concurrency-DBI
-version: v1.0.1
+version: v1.0.2

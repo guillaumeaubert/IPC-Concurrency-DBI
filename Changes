@@ -1,5 +1,10 @@
 Revision history for IPC-Concurrency-DBI
 
+v1.0.2  09/22/2012
+        * Moved repository to GitHub.
+        * Added PerlCritic tests, restricted to core policies.
+        * Added various meta information.
+
 v1.0.1  01/18/2012
         * Cleanup to pass PerlCritic 'harsh'.
         * Made the acknowledgements section geekier.
