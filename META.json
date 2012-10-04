@@ -37,15 +37,15 @@
    "provides" : {
       "IPC::Concurrency::DBI" : {
          "file" : "lib/IPC/Concurrency/DBI.pm",
-         "version" : "v1.0.2"
+         "version" : "v1.0.3"
       },
       "IPC::Concurrency::DBI::Application" : {
          "file" : "lib/IPC/Concurrency/DBI/Application.pm",
-         "version" : "v1.0.2"
+         "version" : "v1.0.3"
       },
       "IPC::Concurrency::DBI::Application::Instance" : {
          "file" : "lib/IPC/Concurrency/DBI/Application/Instance.pm",
-         "version" : "v1.0.2"
+         "version" : "v1.0.3"
       }
    },
    "release_status" : "stable",
@@ -61,5 +61,5 @@
          "url" : "https://github.com/guillaumeaubert/IPC-Concurrency-DBI"
       }
    },
-   "version" : "v1.0.2"
+   "version" : "v1.0.3"
 }
