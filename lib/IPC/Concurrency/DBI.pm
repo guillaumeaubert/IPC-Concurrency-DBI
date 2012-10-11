@@ -301,6 +301,20 @@ sub create_tables
 			)
 			ENGINE=InnoDB
 		|,
+		Pg     =>
+		q|
+			CREATE TABLE ipc_concurrency_applications
+			(
+				ipc_concurrency_application_id BIGSERIAL,
+				name VARCHAR(255) NOT NULL,
+				current_instances INT NOT NULL default '0',
+				maximum_instances INT NOT NULL default '0',
+				created BIGINT NOT NULL default '0',
+				modified BIGINT NOT NULL default '0',
+				PRIMARY KEY (ipc_concurrency_application_id),
+				CONSTRAINT idx_ipc_concurrency_applications_name UNIQUE (name)
+			)
+		|,
 	};
 	croak "No table definition found for database type '$database_type'"
 		if !defined( $tables_sql->{ $database_type } );
