@@ -248,14 +248,10 @@ the applications and instances.
 
 	$concurrency_manager->create_tables(
 		drop_if_exist => $boolean,      #default 0
-		database_type => $database_type #default SQLite
 	);
 
 By default, it won't drop any table but you can force that by setting
 'drop_if_exist' to 1.
-
-'database_type' currently supports 'SQLite' and 'MySQL'. Patches or requests
-for other DBD::* modules are welcome!
 
 =cut
 
@@ -263,14 +259,16 @@ sub create_tables
 {
 	my ( $self, %args ) = @_;
 	my $drop_if_exist = delete( $args{'drop_if_exist'} );
-	my $database_type = delete( $args{'database_type'} );
 	my $database_handle = $self->_get_database_handle();
+	
+	# Check the database type.
+	my $database_type = $self->get_database_type();
+	croak "This database type ($database_type) is not supported yet, please email the maintainer of the module for help"
+		if $database_type !~ m/^(?:SQLite|MySQL)$/x;
 	
 	# Defaults.
 	$drop_if_exist = 0
-		unless defined( $drop_if_exist ) && $drop_if_exist;
-	$database_type = 'MySQL'
-		unless defined( $database_type );
+		if !defined( $drop_if_exist ) || !$drop_if_exist;
 	
 	# Check parameters.
 	croak 'This database type is not supported yet. Please email the maintainer of the module for help.'
