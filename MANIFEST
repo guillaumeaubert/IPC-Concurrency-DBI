@@ -20,6 +20,7 @@ t/25-get_application.t
 t/30-start_instance.t
 t/35-get_instances_count.t
 t/99-cleanup.t
+t/LocalTest.pm
 t/manifest.t
 t/module_versions.t
 t/perlcritic.t
