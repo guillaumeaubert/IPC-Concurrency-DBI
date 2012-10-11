@@ -21,10 +21,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Carp" : "0",
             "DBD::SQLite" : "0",
             "DBI" : "0",
-            "Data::Dumper" : "0",
             "Test::More" : "0"
          }
       },
@@ -35,6 +33,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
+            "Data::Dumper" : "0",
             "perl" : "5.006"
          }
       }

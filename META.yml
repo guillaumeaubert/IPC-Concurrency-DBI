@@ -3,10 +3,8 @@ abstract: 'Control how many instances of an application run in parallel, using D
 author:
   - 'Guillaume Aubert <aubertg@cpan.org>'
 build_requires:
-  Carp: 0
   DBD::SQLite: 0
   DBI: 0
-  Data::Dumper: 0
   Test::More: 0
 configure_requires:
   Module::Build: 0
@@ -31,6 +29,8 @@ provides:
     file: lib/IPC/Concurrency/DBI/Application/Instance.pm
     version: v1.0.3
 requires:
+  Carp: 0
+  Data::Dumper: 0
   perl: 5.006
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/ReportBug.html?Queue=ipc-concurrency-dbi
