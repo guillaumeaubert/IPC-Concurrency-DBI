@@ -335,6 +335,25 @@ sub _get_database_handle
 }
 
 
+=head2 get_database_type()
+
+Return the database type corresponding to the database handle associated
+with the L<IPC::Concurrency::DBI> object.
+
+	my $database_type = $concurrency_manager->get_database_type();
+
+=cut
+
+sub get_database_type
+{
+	my ( $self ) = @_;
+	
+	my $database_handle = $self->_get_database_handle();
+	
+	return $database_handle->{'Driver'}->{'Name'} || '';
+}
+
+
 =head1 AUTHOR
 
 Guillaume Aubert, C<< <aubertg at cpan.org> >>.
