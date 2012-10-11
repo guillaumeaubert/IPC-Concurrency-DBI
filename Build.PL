@@ -10,15 +10,15 @@ my $builder = Module::Build->new(
 	dist_version_from   => 'lib/IPC/Concurrency/DBI.pm',
 	build_requires      =>
 	{
-		'DBD::SQLite'   => 0,
-		'DBI'           => 0,
-		'Test::More'    => 0,
+		'DBD::SQLite'     => 0,
+		'DBI'             => 0,
+		'Test::More'      => 0,
 	},
 	requires            =>
 	{
-		'Carp'          => 0,
-		'Data::Dumper'  => 0,
-		'perl'          => 5.006,
+		'Carp'            => 0,
+		'Data::Dumper'    => 0,
+		'perl'            => 5.006,
 	},
 	add_to_cleanup      =>
 	[
