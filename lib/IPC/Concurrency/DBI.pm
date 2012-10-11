@@ -36,9 +36,6 @@ It uses DBI as a storage layer for information about instances and applications,
 which is particularly useful in contexts where Sarbanes-Oxley regulations allow
 you database access but not file write rights in production environments.
 
-Note that currently only MySQL and SQLite are fully tested. Patches or testing
-environments for other DBD::* modules are welcome.
-
 	# Configure the concurrency object.
 	use IPC::Concurrency::DBI;
 	my $concurrency_manager = IPC::Concurrency::DBI->new(
@@ -81,6 +78,24 @@ environments for other DBD::* modules are welcome.
 	# Now that the application is about to exit, flag the instance as completed.
 	# (note: this is implicit when $instance is destroyed).
 	$instance->finish();
+
+
+=head1 SUPPORTED DATABASES
+
+This distribution currently supports:
+
+=over 4
+
+=item * SQLite
+
+=item * MySQL
+
+=item * PostgreSQL
+
+=back
+
+Please contact me if you need support for another database type, I'm always
+glad to add extensions if you can help me with testing.
 
 
 =head1 METHODS
