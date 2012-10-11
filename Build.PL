@@ -37,6 +37,13 @@ my $builder = Module::Build->new(
 			homepage    => 'https://metacpan.org/release/IPC-Concurrency-DBI',
 			bugtracker  => 'http://rt.cpan.org/NoAuth/ReportBug.html?Queue=ipc-concurrency-dbi',
 		},
+		no_index                =>
+		{
+			file        =>
+			[
+				't/LocalTest.pm',
+			],
+		},
 	},
 );
 
