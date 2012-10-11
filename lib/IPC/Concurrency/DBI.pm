@@ -311,7 +311,7 @@ sub create_tables
 		if $drop_if_exist;
 	$database_handle->do(
 		$tables_sql->{ $database_type }
-	);
+	) || croak 'Cannot execute SQL: ' . $database_handle->errstr();
 	
 	# TODO: create a separate table to hold information about what instances
 	# are currently running.
