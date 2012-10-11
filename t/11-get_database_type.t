@@ -32,7 +32,7 @@ lives_ok(
 
 like(
 	$concurrency_manager->get_database_type(),
-	qr/^(?:SQLite|MySQL|Pg)$/,
+	qr/^(?:SQLite|mysql|Pg)$/,
 	'The database type is correctly determined.',
 );
 
