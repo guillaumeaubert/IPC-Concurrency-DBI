@@ -4,8 +4,11 @@ perl:
   - "5.10"
 before_script:
   - mysql -e 'CREATE DATABASE ipc_concurrency_dbi;'
+  - psql -c 'CREATE DATABASE ipc_concurrency_dbi;' -U postgres
   - cpanm --notest DBI
+  - cpanm --notest DBD::Pg
   - cpanm --notest DBD::mysql
 env:
   - IPC_CONCURRENCY_DBI_DATABASE=''
   - IPC_CONCURRENCY_DBI_DATABASE='DBI:mysql:database=ipc_concurrency_dbi;host=127.0.0.1|root|'
+  - IPC_CONCURRENCY_DBI_DATABASE='DBI:Pg:dbname=ipc_concurrency_dbi;host=127.0.0.1|postgres|'
