@@ -1,5 +1,12 @@
 Revision history for IPC-Concurrency-DBI
 
+v1.1.0  10/11/2012
+        * Set up continuous integration with Travis-CI.
+        * Added full PostgreSQL support.
+        * Refactored tests to use Test::Exception.
+        * Cleaned up requires vs build_requires.
+        * Refactored tests to support testing against any database type.
+
 v1.0.3  10/03/2012
         * Relicensed as GPLv3.
 
