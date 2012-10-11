@@ -3,9 +3,9 @@ perl:
   - "5.16"
   - "5.10"
 before_script:
-  - mysql -e 'CREATE DATABASE queue_dbi;'
+  - mysql -e 'CREATE DATABASE ipc_concurrency_dbi;'
   - cpanm --notest DBI
   - cpanm --notest DBD::mysql
 env:
   - IPC_CONCURRENCY_DBI_DATABASE=''
-  - IPC_CONCURRENCY_DBI_DATABASE='DBI:mysql:database=queue_dbi;host=127.0.0.1|root|'
+  - IPC_CONCURRENCY_DBI_DATABASE='DBI:mysql:database=ipc_concurrency_dbi;host=127.0.0.1|root|'
