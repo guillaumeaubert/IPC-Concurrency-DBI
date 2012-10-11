@@ -261,18 +261,14 @@ sub create_tables
 	my $drop_if_exist = delete( $args{'drop_if_exist'} );
 	my $database_handle = $self->_get_database_handle();
 	
-	# Check the database type.
-	my $database_type = $self->get_database_type();
-	croak "This database type ($database_type) is not supported yet, please email the maintainer of the module for help"
-		if $database_type !~ m/^(?:SQLite|MySQL)$/x;
-	
 	# Defaults.
 	$drop_if_exist = 0
 		if !defined( $drop_if_exist ) || !$drop_if_exist;
 	
-	# Check parameters.
-	croak 'This database type is not supported yet. Please email the maintainer of the module for help.'
-		unless $database_type =~ m/^(SQLite|MySQL)$/;
+	# Check the database type.
+	my $database_type = $self->get_database_type();
+	croak "This database type ($database_type) is not supported yet, please email the maintainer of the module for help"
+		if $database_type !~ m/^(?:SQLite|mysql)$/x;
 	
 	# Create the table that will hold the list of applications as well as
 	# a summary of the information about instances.
