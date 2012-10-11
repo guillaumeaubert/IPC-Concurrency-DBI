@@ -297,7 +297,7 @@ sub create_tables
 				created bigint(20) UNSIGNED NOT NULL default '0',
 				modified bigint(20) UNSIGNED NOT NULL default '0',
 				PRIMARY KEY (ipc_concurrency_application_id),
-				UNIQUE KEY idx_name (name)
+				UNIQUE KEY idx_ipc_concurrency_applications_name (name)
 			)
 			ENGINE=InnoDB
 		|,
