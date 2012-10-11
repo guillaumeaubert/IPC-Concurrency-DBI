@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use Test::Exception;
 use Test::More tests => 4;
 
 use lib 't/';
@@ -39,17 +40,29 @@ my $concurrency_manager = IPC::Concurrency::DBI->new(
 
 foreach my $test ( @$tests_by_name )
 {
-	my $application;
-	eval
+	my $test_sub = sub
 	{
-		$application = $concurrency_manager->get_application(
+		my $application = $concurrency_manager->get_application(
 			name => $test->{'name'},
 		);
+		
+		die 'Application not instantiated'
+			if !defined( $application );
 	};
 	
-	is(
-		$@ || !defined( $application ) ? 'failure' : 'success',
-		$test->{'expected_result'},
-		$test->{'test_name'},
-	) || diag( $@ ? "Error: $@." : "No error reported." );
+	if ( $test->{'expected_result'} eq 'success' )
+	{
+		lives_ok(
+			sub { $test_sub->() },
+			$test->{'test_name'},
+		);
+	}
+	else
+	{
+		dies_ok(
+			sub { $test_sub->() },
+			$test->{'test_name'},
+		);
+	}
 }
+

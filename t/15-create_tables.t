@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use Test::Exception;
 use Test::More tests => 2;
 
 use lib 't/';
@@ -18,14 +19,12 @@ my $concurrency_manager = IPC::Concurrency::DBI->new(
 	'verbose'         => 0,
 );
 
-eval
-{
-	$concurrency_manager->create_tables(
-		database_type => 'SQLite',
-	);
-};
-
-ok(
-	!$@,
+lives_ok(
+	sub
+	{
+		$concurrency_manager->create_tables(
+			database_type => 'SQLite',
+		);
+	},
 	'Create table(s).',
-) || diag( $@ );
+);

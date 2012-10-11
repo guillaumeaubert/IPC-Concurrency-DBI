@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use Test::Exception;
 use Test::More tests => 4;
 
 use lib 't/';
@@ -14,18 +15,17 @@ use IPC::Concurrency::DBI;
 my $dbh = LocalTest::ok_database_handle();
 
 my $concurrency_manager;
-eval
-{
-	# Configure the concurrency object.
-	$concurrency_manager = IPC::Concurrency::DBI->new(
-		'database_handle' => $dbh,
-		'verbose'         => 0,
-	);
-};
-ok(
-	!$@,
+lives_ok(
+	sub
+	{
+		# Configure the concurrency object.
+		$concurrency_manager = IPC::Concurrency::DBI->new(
+			'database_handle' => $dbh,
+			'verbose'         => 0,
+		);
+	},
 	'Create a new IPC::Concurrency::DBI object.',
-) || diag( $@ );
+);
 
 ok(
 	defined( $concurrency_manager ),
