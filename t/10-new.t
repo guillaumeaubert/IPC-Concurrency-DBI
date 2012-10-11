@@ -4,22 +4,14 @@ use strict;
 use warnings;
 
 use Test::More tests => 4;
-use DBI;
+
+use lib 't/';
+use LocalTest;
 
 use IPC::Concurrency::DBI;
 
 
-ok(
-	my $dbh = DBI->connect(
-		'dbi:SQLite:dbname=test_database',
-		'',
-		'',
-		{
-			RaiseError => 1,
-		}
-	),
-	'Create connection to a SQLite database',
-);
+my $dbh = LocalTest::ok_database_handle();
 
 my $concurrency_manager;
 eval
