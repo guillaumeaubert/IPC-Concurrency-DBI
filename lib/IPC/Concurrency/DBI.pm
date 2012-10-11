@@ -270,13 +270,11 @@ sub create_tables
 	croak "This database type ($database_type) is not supported yet, please email the maintainer of the module for help"
 		if $database_type !~ m/^(?:SQLite|mysql)$/x;
 	
-	# Create the table that will hold the list of applications as well as
-	# a summary of the information about instances.
-	$database_handle->do( q|DROP TABLE IF EXISTS ipc_concurrency_applications| )
-		if $drop_if_exist;
-	$database_handle->do(
-		$database_type eq 'SQLite'
-		? q|
+	# Table definitions.
+	my $tables_sql =
+	{
+		SQLite =>
+		q|
 			CREATE TABLE ipc_concurrency_applications
 			(
 				ipc_concurrency_application_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -287,8 +285,9 @@ sub create_tables
 				modified bigint(20) NOT NULL default '0',
 				UNIQUE (name)
 			)
-		|
-		: q|
+		|,
+		mysql  =>
+		q|
 			CREATE TABLE ipc_concurrency_applications
 			(
 				ipc_concurrency_application_id BIGINT(20) UNSIGNED NOT NULL auto_increment,
@@ -301,7 +300,17 @@ sub create_tables
 				UNIQUE KEY idx_name (name)
 			)
 			ENGINE=InnoDB
-		|
+		|,
+	};
+	croak "No table definition found for database type '$database_type'"
+		if !defined( $tables_sql->{ $database_type } );
+	
+	# Create the table that will hold the list of applications as well as
+	# a summary of the information about instances.
+	$database_handle->do( q|DROP TABLE IF EXISTS ipc_concurrency_applications| )
+		if $drop_if_exist;
+	$database_handle->do(
+		$tables_sql->{ $database_type }
 	);
 	
 	# TODO: create a separate table to hold information about what instances
