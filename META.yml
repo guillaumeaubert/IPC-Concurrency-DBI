@@ -5,6 +5,7 @@ author:
 build_requires:
   DBD::SQLite: 0
   DBI: 0
+  Test::Exception: 0
   Test::More: 0
 configure_requires:
   Module::Build: 0

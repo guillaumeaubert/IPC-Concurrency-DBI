@@ -12,6 +12,7 @@ my $builder = Module::Build->new(
 	{
 		'DBD::SQLite'     => 0,
 		'DBI'             => 0,
+		'Test::Exception' => 0,
 		'Test::More'      => 0,
 	},
 	requires            =>

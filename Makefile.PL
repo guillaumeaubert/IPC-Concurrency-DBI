@@ -10,6 +10,7 @@ WriteMakefile
                    'DBD::SQLite' => 0,
                    'DBI' => 0,
                    'Data::Dumper' => 0,
+                   'Test::Exception' => 0,
                    'Test::More' => 0
                  },
   'INSTALLDIRS' => 'site',
