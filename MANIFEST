@@ -22,6 +22,7 @@ t/14-set_verbose.t
 t/15-create_tables.t
 t/20-register_application.t
 t/25-get_application.t
+t/30-Application/00-load.t
 t/30-start_instance.t
 t/35-get_instances_count.t
 t/99-cleanup.t
