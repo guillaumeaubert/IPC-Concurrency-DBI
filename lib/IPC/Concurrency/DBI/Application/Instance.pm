@@ -95,7 +95,7 @@ sub finish
 {
 	my ( $self ) = @_;
 	my $application = $self->_get_application();
-	my $database_handle = $application->_get_database_handle();
+	my $database_handle = $application->get_database_handle();
 	
 	# If the object has already been destroyed, we have a problem.
 	croak 'The instance has already been marked as finished'
@@ -124,15 +124,15 @@ sub finish
 
 =head1 INTERNAL METHODS
 
-=head2 _get_database_handle()
+=head2 get_database_handle()
 
 Returns the database handle used for this queue.
 
-	my $database_handle = $concurrency_manager->_get_database_handle();
+	my $database_handle = $concurrency_manager->get_database_handle();
 
 =cut
 
-sub _get_database_handle
+sub get_database_handle
 {
 	my ( $self ) = @_;
 	
@@ -140,7 +140,7 @@ sub _get_database_handle
 	croak 'The Instance object does not reference an application'
 		unless defined( $application );
 	
-	return $application->_get_database_handle();
+	return $application->get_database_handle();
 }
 
 

@@ -172,7 +172,7 @@ Start a new instance of the current application.
 sub start_instance
 {
 	my ( $self ) = @_;
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	my $maximum_instances = $self->get_maximum_instances();
 	
 	my $rows_affected = $database_handle->do(
@@ -210,7 +210,7 @@ Retrieve the number of instances that currently running.
 sub get_instances_count
 {
 	my ( $self ) = @_;
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	my $maximum_instances = $self->get_maximum_instances();
 	
 	my $data = $database_handle->selectrow_hashref(
@@ -266,7 +266,7 @@ sub set_maximum_instances
 		if !defined( $maximum_instances ) || ( $maximum_instances !~ m/^\d+$/ ) || ( $maximum_instances <= 0 );
 	
 	# Update the application information.
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	my $rows_affected = $database_handle->do(
 		q|
 			UPDATE ipc_concurrency_applications
@@ -318,15 +318,15 @@ sub get_id
 
 =head1 INTERNAL METHODS
 
-=head2 _get_database_handle()
+=head2 get_database_handle()
 
 Returns the database handle used for this queue.
 
-	my $database_handle = $concurrency_manager->_get_database_handle();
+	my $database_handle = $concurrency_manager->get_database_handle();
 
 =cut
 
-sub _get_database_handle
+sub get_database_handle
 {
 	my ( $self ) = @_;
 	

@@ -203,7 +203,7 @@ sub register_application
 		if ( $maximum_instances !~ m/^\d+$/ ) || ( $maximum_instances <= 0 );
 	
 	# Insert the new application.
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	my $time = time();
 	my $rows_affected = $database_handle->do(
 		q|
@@ -246,7 +246,7 @@ sub get_application
 	my ( $self, %args ) = @_;
 	my $name = delete( $args{'name'} );
 	my $application_id = delete( $args{'id'} );
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	
 	return IPC::Concurrency::DBI::Application->new(
 		name            => $name,
@@ -274,7 +274,7 @@ sub create_tables
 {
 	my ( $self, %args ) = @_;
 	my $drop_if_exist = delete( $args{'drop_if_exist'} );
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	
 	# Defaults.
 	$drop_if_exist = 0
@@ -351,15 +351,15 @@ sub create_tables
 
 =head1 INTERNAL METHODS
 
-=head2 _get_database_handle()
+=head2 get_database_handle()
 
 Returns the database handle used for this queue.
 
-	my $database_handle = $concurrency_manager->_get_database_handle();
+	my $database_handle = $concurrency_manager->get_database_handle();
 
 =cut
 
-sub _get_database_handle
+sub get_database_handle
 {
 	my ( $self ) = @_;
 	
@@ -380,7 +380,7 @@ sub get_database_type
 {
 	my ( $self ) = @_;
 	
-	my $database_handle = $self->_get_database_handle();
+	my $database_handle = $self->get_database_handle();
 	
 	return $database_handle->{'Driver'}->{'Name'} || '';
 }
