@@ -124,26 +124,6 @@ sub finish
 
 =head1 INTERNAL METHODS
 
-=head2 get_database_handle()
-
-Returns the database handle used for this queue.
-
-	my $database_handle = $concurrency_manager->get_database_handle();
-
-=cut
-
-sub get_database_handle
-{
-	my ( $self ) = @_;
-	
-	my $application = $self->get_application();
-	croak 'The Instance object does not reference an application'
-		unless defined( $application );
-	
-	return $application->get_database_handle();
-}
-
-
 =head2 get_application()
 
 Returns the parent IPC::Concurrency::DBI::Application object.
