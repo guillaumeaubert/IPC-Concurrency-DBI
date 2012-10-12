@@ -94,7 +94,7 @@ a new instance.
 sub finish
 {
 	my ( $self ) = @_;
-	my $application = $self->_get_application();
+	my $application = $self->get_application();
 	my $database_handle = $application->get_database_handle();
 	
 	# If the object has already been destroyed, we have a problem.
@@ -144,15 +144,15 @@ sub get_database_handle
 }
 
 
-=head2 _get_application()
+=head2 get_application()
 
 Returns the parent IPC::Concurrency::DBI::Application object.
 
-	my $application = $instance->_get_application();
+	my $application = $instance->get_application();
 
 =cut
 
-sub _get_application
+sub get_application
 {
 	my ( $self ) = @_;
 	
