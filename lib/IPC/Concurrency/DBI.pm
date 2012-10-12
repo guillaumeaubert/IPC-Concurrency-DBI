@@ -217,6 +217,8 @@ sub register_application
 		$time,
 		$time,
 	);
+	croak 'Cannot execute SQL: ' . $database_handle->errstr()
+		if defined( $database_handle->errstr() );
 	
 	return defined( $rows_affected ) && $rows_affected == 1 ? 1 : 0;
 }
@@ -337,8 +339,11 @@ sub create_tables
 	
 	# Create the table that will hold the list of applications as well as
 	# a summary of the information about instances.
-	$database_handle->do( q|DROP TABLE IF EXISTS ipc_concurrency_applications| )
-		if $drop_if_exist;
+	if ( $drop_if_exist )
+	{
+		$database_handle->do( q|DROP TABLE IF EXISTS ipc_concurrency_applications| )
+			|| croak 'Cannot execute SQL: ' . $database_handle->errstr();
+	}
 	$database_handle->do(
 		$tables_sql->{ $database_type }
 	) || croak 'Cannot execute SQL: ' . $database_handle->errstr();

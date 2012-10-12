@@ -115,6 +115,8 @@ sub finish
 		time(),
 		$application->get_id(),
 	);
+	croak 'Cannot execute SQL: ' . $database_handle->errstr()
+		if defined( $database_handle->errstr() );
 	
 	$self->{'finished'} = 1;
 	

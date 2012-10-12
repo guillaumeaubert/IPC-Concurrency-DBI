@@ -187,6 +187,8 @@ sub start_instance
 		time(),
 		$self->get_id(),
 	);
+	croak 'Cannot execute SQL: ' . $database_handle->errstr()
+		if defined( $database_handle->errstr() );
 	
 	# If no row was affected, we've reached the maximum number of instances or
 	# the application ID has vanished. Either way, we can't start the instance.
@@ -278,6 +280,8 @@ sub set_maximum_instances
 		$maximum_instances,
 		$self->get_id(),
 	);
+	croak 'Cannot execute SQL: ' . $database_handle->errstr()
+		if defined( $database_handle->errstr() );
 	
 	$self->{'data'}->{'maximum_instances'} = $maximum_instances;
 	
