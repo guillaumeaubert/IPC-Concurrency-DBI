@@ -28,6 +28,7 @@ t/30-Application/16-set_maximum_instances.t
 t/30-Application/20-get_name.t
 t/30-Application/22-get_id.t
 t/30-Application/24-get_database_handle.t
+t/30-Application/27-Instance/00-load.t
 t/30-Application/30-start_instance.t
 t/30-Application/35-get_instances_count.t
 t/35-get_application.t
