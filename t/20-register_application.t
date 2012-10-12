@@ -4,13 +4,18 @@ use strict;
 use warnings;
 
 use Test::Exception;
-use Test::More tests => 8;
+use Test::More tests => 9;
 
 use lib 't/';
 use LocalTest;
 
 use IPC::Concurrency::DBI;
 
+
+can_ok(
+	'IPC::Concurrency::DBI',
+	'register_application',
+);
 
 my $tests =
 [

@@ -4,13 +4,18 @@ use strict;
 use warnings;
 
 use Test::Exception;
-use Test::More tests => 2;
+use Test::More tests => 3;
 
 use lib 't/';
 use LocalTest;
 
 use IPC::Concurrency::DBI;
 
+
+can_ok(
+	'IPC::Concurrency::DBI',
+	'create_tables',
+);
 
 my $dbh = LocalTest::ok_database_handle();
 
