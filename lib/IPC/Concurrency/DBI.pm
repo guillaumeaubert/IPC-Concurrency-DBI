@@ -137,35 +137,10 @@ sub new
 		$class,
 	);
 	
-	$self->verbose( $verbose )
+	$self->set_verbose( $verbose )
 		if defined( $verbose );
 	
 	return $self;
-}
-
-
-=head2 verbose()
-
-Control the verbosity of the warnings in the code.
-
-	$concurrency_manager->verbose(1); # turn on verbose information
-	
-	$concurrency_manager->verbose(0); # quiet now!
-	
-	warn 'Verbose' if $concurrency_manager->verbose(); # getter-style
-	
-Allows turning on/off debugging information.
-
-=cut
-
-sub verbose
-{
-	my ( $self, $verbose ) = @_;
-	
-	$self->{'verbose'} = ( $verbose || 0 )
-		if defined( $verbose );
-	
-	return $self->{'verbose'};
 }
 
 
@@ -355,7 +330,7 @@ sub create_tables
 }
 
 
-=head1 INTERNAL METHODS
+=head1 ACCESSORS
 
 =head2 get_database_handle()
 
@@ -389,6 +364,73 @@ sub get_database_type
 	my $database_handle = $self->get_database_handle();
 	
 	return $database_handle->{'Driver'}->{'Name'} || '';
+}
+
+
+=head2 get_verbose()
+
+Return the verbosity level, which is used in the module to determine when and
+what type of debugging statements / information should be warned out.
+
+See C<set_verbose()> for the possible values this function can return.
+
+	warn 'Verbose' if $queue->get_verbose();
+	
+	warn 'Very verbose' if $queue->get_verbose() > 1;
+
+=cut
+
+sub get_verbose
+{
+	my ( $self ) = @_;
+	
+	return $self->{'verbose'};
+}
+
+
+=head2 set_verbose()
+
+Control the verbosity of the warnings in the code:
+
+=over 4
+
+=item * 0 will not display any warning;
+
+=item * 1 will only give one line warnings about the current operation;
+
+=item * 2 will also usually output the SQL queries performed.
+
+=back
+
+	$queue->set_verbose(1); # turn on verbose information
+	
+	$queue->set_verbose(2); # be extra verbose
+	
+	$queue->set_verbose(0); # quiet now!
+
+=cut
+
+sub set_verbose
+{
+	my ( $self, $verbose ) = @_;
+	
+	$self->{'verbose'} = ( $verbose || 0 );
+	
+	return;
+}
+
+
+=head1 DEPRECATED METHODS
+
+=head2 verbose()
+
+Please use C<get_verbose()> and C<set_verbose()> instead.
+
+=cut
+
+sub verbose
+{
+	croak 'verbose() has been deprecated, please use get_verbose() / set_verbose() instead.';
 }
 
 
