@@ -148,11 +148,11 @@ sub new
 
 Control the verbosity of the warnings in the code.
 
-	$queue->verbose(1); # turn on verbose information
+	$concurrency_manager->verbose(1); # turn on verbose information
 	
-	$queue->verbose(0); # quiet now!
+	$concurrency_manager->verbose(0); # quiet now!
 	
-	warn 'Verbose' if $queue->verbose(); # getter-style
+	warn 'Verbose' if $concurrency_manager->verbose(); # getter-style
 	
 Allows turning on/off debugging information.
 
@@ -359,7 +359,7 @@ sub create_tables
 
 =head2 get_database_handle()
 
-Returns the database handle used for this queue.
+Returns the database handle used for this object.
 
 	my $database_handle = $concurrency_manager->get_database_handle();
 

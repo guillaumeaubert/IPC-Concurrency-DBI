@@ -325,7 +325,7 @@ sub get_id
 
 =head2 get_database_handle()
 
-Returns the database handle used for this queue.
+Returns the database handle used for this object.
 
 	my $database_handle = $concurrency_manager->get_database_handle();
 
