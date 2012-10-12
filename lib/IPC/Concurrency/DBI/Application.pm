@@ -102,7 +102,7 @@ sub new
 	my ( $class, %args ) = @_;
 	my $database_handle = delete( $args{'database_handle'} );
 	my $name = delete( $args{'name'} );
-	my $application_id = delete( $args{'application_id'} );
+	my $application_id = delete( $args{'id'} );
 	
 	# Check parameters.
 	croak "Argument 'database_handle' is required to create a new IPC::Concurrency::DBI::Application object"
