@@ -69,7 +69,7 @@ sub new
 	croak "Argument 'application' is required to create a new IPC::Concurrency::DBI::Application::Instance object"
 		unless defined( $application );
 	croak "Argument '$application' is not an IPC::Concurrency::DBI::Application"
-		unless $application->isa( 'IPC::Concurrency::DBI::Application' );
+		if !Data::Validate::Type::is_instance( $application, class => 'IPC::Concurrency::DBI::Application' );
 	
 	# Create the object.
 	my $self = bless(

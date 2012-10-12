@@ -4,6 +4,7 @@ use warnings;
 use strict;
 
 use Data::Dumper;
+use Data::Validate::Type;
 use Carp;
 
 use IPC::Concurrency::DBI::Application;
@@ -125,7 +126,7 @@ sub new
 	croak "Argument 'database_handle' is required to create a new IPC::Concurrency::DBI object"
 		unless defined( $database_handle );
 	croak "Argument 'database_handle' is not a DBI object"
-		unless $database_handle->isa( 'DBI::db' );
+		if !Data::Validate::Type::is_instance( $database_handle, class => 'DBI::db' );
 	
 	# Create the object.
 	my $self = bless(
@@ -200,7 +201,7 @@ sub register_application
 	croak 'The maximum number of instances must be defined'
 		if !defined( $maximum_instances ) || ( $maximum_instances eq '' );
 	croak 'The maximum number of instances must be a strictly positive integer'
-		if ( $maximum_instances !~ m/^\d+$/ ) || ( $maximum_instances <= 0 );
+		if !Data::Validate::Type::is_number( $maximum_instances, strictly_positive => 1 );
 	
 	# Insert the new application.
 	my $database_handle = $self->get_database_handle();
