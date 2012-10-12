@@ -19,6 +19,7 @@ my $builder = Module::Build->new(
 	{
 		'Carp'                 => 0,
 		'Data::Dumper'         => 0,
+		'Data::Validate::Type' => 0,
 		'perl'                 => 5.006,
 	},
 	add_to_cleanup      =>
