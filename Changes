@@ -1,5 +1,12 @@
 Revision history for IPC-Concurrency-DBI
 
+v1.1.1  10/13/2012
+        * Added a lot of tests.
+        * Split IPC::Concurrency::DBI->verbose() into get_verbose() and set_verbose().
+        * Added SQL error checks.
+        * Refactored code to use Data::Validate::Type.
+        * Code and tests cleanup.
+
 v1.1.0  10/11/2012
         * Set up continuous integration with Travis-CI.
         * Added full PostgreSQL support.

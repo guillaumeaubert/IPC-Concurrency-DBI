@@ -22,13 +22,13 @@ no_index:
 provides:
   IPC::Concurrency::DBI:
     file: lib/IPC/Concurrency/DBI.pm
-    version: v1.1.0
+    version: v1.1.1
   IPC::Concurrency::DBI::Application:
     file: lib/IPC/Concurrency/DBI/Application.pm
-    version: v1.1.0
+    version: v1.1.1
   IPC::Concurrency::DBI::Application::Instance:
     file: lib/IPC/Concurrency/DBI/Application/Instance.pm
-    version: v1.1.0
+    version: v1.1.1
 requires:
   Carp: 0
   Data::Dumper: 0
@@ -39,4 +39,4 @@ resources:
   homepage: https://metacpan.org/release/IPC-Concurrency-DBI
   license: http://www.gnu.org/licenses/gpl-3.0.txt
   repository: https://github.com/guillaumeaubert/IPC-Concurrency-DBI
-version: v1.1.0
+version: v1.1.1
