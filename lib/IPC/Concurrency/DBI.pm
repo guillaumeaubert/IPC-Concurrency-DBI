@@ -110,9 +110,19 @@ Create a new IPC::Concurrency::DBI object.
 		'verbose'           => 1,
 	);
 
-'database handle': mandatory, a DBI object.
+Arguments:
 
-'verbose': optional, see verbose() for options.
+=over 4
+
+=item * database handle
+
+Mandatory, a DBI object.
+
+=item * verbose
+
+Optional, see verbose() for options.
+
+=back
 
 =cut
 
