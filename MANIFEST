@@ -8,7 +8,7 @@ MANIFEST.SKIP
 META.json
 META.yml
 Makefile.PL
-README
+README.md
 ignore.txt
 lib/IPC/Concurrency/DBI.pm
 lib/IPC/Concurrency/DBI/Application.pm
