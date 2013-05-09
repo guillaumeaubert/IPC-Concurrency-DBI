@@ -59,7 +59,7 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://rt.cpan.org/NoAuth/ReportBug.html?Queue=ipc-concurrency-dbi"
+         "web" : "https://github.com/guillaumeaubert/IPC-Concurrency-DBI/issues"
       },
       "homepage" : "https://metacpan.org/release/IPC-Concurrency-DBI",
       "license" : [

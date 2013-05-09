@@ -69,7 +69,7 @@ my $builder = $class->new(
 		{
 			repository  => 'https://github.com/guillaumeaubert/IPC-Concurrency-DBI',
 			homepage    => 'https://metacpan.org/release/IPC-Concurrency-DBI',
-			bugtracker  => 'http://rt.cpan.org/NoAuth/ReportBug.html?Queue=ipc-concurrency-dbi',
+			bugtracker  => 'https://github.com/guillaumeaubert/IPC-Concurrency-DBI/issues',
 		},
 		no_index                =>
 		{
