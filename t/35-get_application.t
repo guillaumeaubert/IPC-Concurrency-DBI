@@ -3,13 +3,12 @@
 use strict;
 use warnings;
 
+use IPC::Concurrency::DBI;
 use Test::Exception;
 use Test::More tests => 5;
 
 use lib 't/';
 use LocalTest;
-
-use IPC::Concurrency::DBI;
 
 
 can_ok(

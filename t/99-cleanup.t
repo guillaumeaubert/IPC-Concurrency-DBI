@@ -5,6 +5,7 @@ use warnings;
 
 use Test::More tests => 1;
 
+
 SKIP:
 {
 	skip( 'Temporary database file does not exist.', 1 )

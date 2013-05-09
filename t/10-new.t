@@ -3,13 +3,12 @@
 use strict;
 use warnings;
 
+use IPC::Concurrency::DBI;
 use Test::Exception;
 use Test::More tests => 4;
 
 use lib 't/';
 use LocalTest;
-
-use IPC::Concurrency::DBI;
 
 
 my $dbh = LocalTest::ok_database_handle();
