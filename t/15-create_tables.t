@@ -5,6 +5,7 @@ use warnings;
 
 use IPC::Concurrency::DBI;
 use Test::Exception;
+use Test::FailWarnings -allow_deps => 1;
 use Test::More tests => 3;
 
 use lib 't/';

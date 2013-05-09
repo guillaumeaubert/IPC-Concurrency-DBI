@@ -12,6 +12,7 @@ WriteMakefile
                    'Data::Dumper' => 0,
                    'Data::Validate::Type' => 0,
                    'Test::Exception' => 0,
+                   'Test::FailWarnings' => 0,
                    'Test::More' => 0
                  },
   'INSTALLDIRS' => 'site',
