@@ -38,8 +38,8 @@ You can also look for information at:
  * [CPAN Ratings]
    (http://cpanratings.perl.org/d/IPC-Concurrency-DBI)
 
- * [Search CPAN]
-   (http://search.cpan.org/dist/IPC-Concurrency-DBI/)
+ * [MetaCPAN]
+   (https://metacpan.org/release/IPC-Concurrency-DBI)
 
 
 LICENSE AND COPYRIGHT

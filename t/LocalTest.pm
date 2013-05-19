@@ -100,9 +100,9 @@ L<http://annocpan.org/dist/IPC-Concurrency-DBI>
 
 L<http://cpanratings.perl.org/d/IPC-Concurrency-DBI>
 
-=item * Search CPAN
+=item * MetaCPAN
 
-L<http://search.cpan.org/dist/IPC-Concurrency-DBI/>
+L<https://metacpan.org/release/IPC-Concurrency-DBI>
 
 =back
 
