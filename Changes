@@ -1,5 +1,14 @@
 Revision history for IPC-Concurrency-DBI
 
+v1.1.2  2013-05-19
+        * Moved release tests to xt/, added new release tests.
+        * Modified Build.PL to add release tests to disttest.
+        * Added Test::FailWarnings to all tests.
+        * Moved request tracker from RT to GitHub.
+        * Changed links from Search CPAN to MetaCPAN.
+        * Added information on how to contribute examples.
+        * Fixed formatting and switched to markdown for the readme.
+
 v1.1.1  2012-10-13
         * Added a lot of tests.
         * Split IPC::Concurrency::DBI->verbose() into get_verbose() and set_verbose().

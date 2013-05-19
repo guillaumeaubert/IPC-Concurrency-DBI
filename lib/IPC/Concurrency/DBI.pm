@@ -17,11 +17,11 @@ IPC::Concurrency::DBI - Control how many instances of an application run in para
 
 =head1 VERSION
 
-Version 1.1.1
+Version 1.1.2
 
 =cut
 
-our $VERSION = '1.1.1';
+our $VERSION = '1.1.2';
 
 
 =head1 SYNOPSIS
