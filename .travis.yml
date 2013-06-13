@@ -12,3 +12,7 @@ env:
   - IPC_CONCURRENCY_DBI_DATABASE=''
   - IPC_CONCURRENCY_DBI_DATABASE='DBI:mysql:database=ipc_concurrency_dbi;host=127.0.0.1|root|'
   - IPC_CONCURRENCY_DBI_DATABASE='DBI:Pg:dbname=ipc_concurrency_dbi;host=127.0.0.1|postgres|'
+before_install:
+  cpanm -n Devel::Cover::Report::Coveralls
+script:
+  perl Build.PL && ./Build build && cover -test -report coveralls
