@@ -163,11 +163,6 @@ sub DESTROY
 }
 
 
-=head1 AUTHOR
-
-Guillaume Aubert, C<< <aubertg at cpan.org> >>.
-
-
 =head1 BUGS
 
 Please report any bugs or feature requests through the web interface at
@@ -206,14 +201,10 @@ L<https://metacpan.org/release/IPC-Concurrency-DBI>
 =back
 
 
-=head1 ACKNOWLEDGEMENTS
+=head1 AUTHOR
 
-Thanks to ThinkGeek (L<http://www.thinkgeek.com/>) and its corporate overlords
-at Geeknet (L<http://www.geek.net/>), for footing the bill while I eat pizza
-and write code for them!
-
-Thanks to Jacob Rose C<< <jacob at thinkgeek.com> >> for suggesting the idea of
-this module and brainstorming with me about the features it should offer.
+L<Guillaume Aubert|https://metacpan.org/author/AUBERTG>,
+C<< <aubertg at cpan.org> >>.
 
 
 =head1 COPYRIGHT & LICENSE
