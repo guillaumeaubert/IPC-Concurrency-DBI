@@ -52,18 +52,18 @@ is(
 		defined( $instance2 ),
 		'Start a new instance.',
 	);
-	
+
 	is(
 		$application->get_instances_count(),
 		2,
 		'Current instances is 2.',
 	);
-	
+
 	ok(
 		$instance->finish(),
 		'Finish the first instance.',
 	);
-	
+
 	is(
 		$application->get_instances_count(),
 		1,

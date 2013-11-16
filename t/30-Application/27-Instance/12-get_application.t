@@ -47,7 +47,7 @@ lives_ok(
 	},
 	'Call get_application().',
 );
-	
+
 is(
 	$retrieved_application,
 	$application,

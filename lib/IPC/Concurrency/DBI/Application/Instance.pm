@@ -34,9 +34,9 @@ See the documentation of IPC::Concurrency::DBI for more information.
 		print "Too many instances of $0 are already running.\n";
 		exit;
 	}
-	
+
 	# [...] Do some work.
-	
+
 	# Now that the application is about to exit, flag the instance as completed.
 	# (note: this is implicit when $instance is destroyed).
 	$instance->finish();
@@ -64,13 +64,13 @@ sub new
 {
 	my ( $class, %args ) = @_;
 	my $application = delete( $args{'application'} );
-	
+
 	# Check parameters.
 	croak "Argument 'application' is required to create a new IPC::Concurrency::DBI::Application::Instance object"
 		unless defined( $application );
 	croak "Argument 'application' is not an IPC::Concurrency::DBI::Application"
 		if !Data::Validate::Type::is_instance( $application, class => 'IPC::Concurrency::DBI::Application' );
-	
+
 	# Create the object.
 	my $self = bless(
 		{
@@ -79,7 +79,7 @@ sub new
 		},
 		$class,
 	);
-	
+
 	return $self;
 }
 
@@ -96,11 +96,11 @@ sub finish
 	my ( $self ) = @_;
 	my $application = $self->get_application();
 	my $database_handle = $application->get_database_handle();
-	
+
 	# If the object has already been destroyed, we have a problem.
 	croak 'The instance has already been marked as finished'
 		if $self->{'finished'};
-	
+
 	# Decrement the count of running instances, provided that it's > 0.
 	# We should never encounter the case that would make it go negative, but
 	# being careful never hurts.
@@ -117,9 +117,9 @@ sub finish
 	);
 	croak 'Cannot execute SQL: ' . $database_handle->errstr()
 		if defined( $database_handle->errstr() );
-	
+
 	$self->{'finished'} = 1;
-	
+
 	return 1;
 }
 
@@ -137,7 +137,7 @@ Returns the parent IPC::Concurrency::DBI::Application object.
 sub get_application
 {
 	my ( $self ) = @_;
-	
+
 	return $self->{'application'};
 }
 
@@ -152,13 +152,13 @@ is destroyed, if finish() has not been called already.
 sub DESTROY
 {
 	my( $self ) = @_;
-	
+
 	$self->finish()
 		unless $self->{'finished'};
-	
+
 	$self->SUPER::DESTROY()
 		if $self->can( 'SUPER::DESTROY' );
-	
+
 	return;
 }
 

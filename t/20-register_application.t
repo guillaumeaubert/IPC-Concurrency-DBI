@@ -81,13 +81,13 @@ foreach my $test ( @$tests )
 			warn $_[0]
 				if $test->{'expected_result'} eq 'success';
 		};
-		
+
 		$concurrency_manager->register_application(
 			name              => $test->{'name'},
 			maximum_instances => $test->{'maximum_instances'},
 		);
 	};
-	
+
 	if ( $test->{'expected_result'} eq 'success' )
 	{
 		lives_ok(

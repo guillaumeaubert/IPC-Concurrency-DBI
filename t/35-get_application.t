@@ -50,11 +50,11 @@ foreach my $test ( @$tests_by_name )
 		my $application = $concurrency_manager->get_application(
 			name => $test->{'name'},
 		);
-		
+
 		die 'Application not instantiated'
 			if !defined( $application );
 	};
-	
+
 	if ( $test->{'expected_result'} eq 'success' )
 	{
 		lives_ok(

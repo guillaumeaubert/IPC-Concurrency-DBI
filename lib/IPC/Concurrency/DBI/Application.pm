@@ -37,18 +37,18 @@ See the documentation of IPC::Concurrency::DBI for more information.
 		'database_handle' => $dbh,
 		'verbose'         => 1,
 	);
-	
+
 	# Retrieve the application.
 	my $application = $concurrency_manager->get_application(
 		name => 'cron_script.pl',
 	);
-	
+
 	# Count how many instances are currently running.
 	my $instances_count = $application->get_instances_count();
-	
+
 	# NOT IMPLEMENTED YET: Get a list of what instances are currently running.
 	# my $instances = $application->get_instances_list()
-	
+
 	# Start a new instance of the application. If this returns undef, we've
 	# reached the limit.
 	my $instance = $concurrent_program->start_instance();
@@ -57,9 +57,9 @@ See the documentation of IPC::Concurrency::DBI for more information.
 		print "Too many instances of $0 are already running.\n";
 		exit;
 	}
-	
+
 	# [...] Do some work.
-	
+
 	# Now that the application is about to exit, flag the instance as completed.
 	# (note: this is implicit when $instance is destroyed).
 	$instance->finish();
@@ -80,7 +80,7 @@ IPC::Concurrency::DBI->get_application().
 	);
 	die 'Application not found'
 		unless defined( $application );
-	
+
 	# Retrieve the application by ID.
 	my $application = IPC::Concurrency::DBI::Application->new(
 		database_handle => $dbh,
@@ -103,7 +103,7 @@ sub new
 	my $database_handle = delete( $args{'database_handle'} );
 	my $name = delete( $args{'name'} );
 	my $application_id = delete( $args{'id'} );
-	
+
 	# Check parameters.
 	croak "Argument 'database_handle' is required to create a new IPC::Concurrency::DBI::Application object"
 		unless defined( $database_handle );
@@ -111,7 +111,7 @@ sub new
 		if !Data::Validate::Type::is_instance( $database_handle, class => 'DBI::db' );
 	croak 'Cannot pass both a name and an application ID, please use only one'
 		if defined( $name ) && defined( $application_id );
-	
+
 	# Determine what key to use to retrieve the row.
 	my ( $key, $value );
 	if ( defined( $name ) )
@@ -128,7 +128,7 @@ sub new
 	{
 		croak 'You need to specify either a name or an ID to retrieve an application';
 	}
-	
+
 	# Retrieve the row from the database.
 	my $data = $database_handle->selectrow_hashref(
 		qq|
@@ -143,7 +143,7 @@ sub new
 		if defined( $database_handle->errstr() );
 	croak 'Application not found'
 		unless defined( $data );
-	
+
 	# Create the object.
 	my $self = bless(
 		{
@@ -152,7 +152,7 @@ sub new
 		},
 		$class,
 	);
-	
+
 	return $self;
 }
 
@@ -175,7 +175,7 @@ sub start_instance
 	my ( $self ) = @_;
 	my $database_handle = $self->get_database_handle();
 	my $maximum_instances = $self->get_maximum_instances();
-	
+
 	my $rows_affected = $database_handle->do(
 		q|
 			UPDATE ipc_concurrency_applications
@@ -189,11 +189,11 @@ sub start_instance
 	);
 	croak 'Cannot execute SQL: ' . $database_handle->errstr()
 		if defined( $database_handle->errstr() );
-	
+
 	# If no row was affected, we've reached the maximum number of instances or
 	# the application ID has vanished. Either way, we can't start the instance.
 	return unless $rows_affected == 1;
-	
+
 	return IPC::Concurrency::DBI::Application::Instance->new(
 		application => $self,
 	);
@@ -215,7 +215,7 @@ sub get_instances_count
 	my ( $self ) = @_;
 	my $database_handle = $self->get_database_handle();
 	my $maximum_instances = $self->get_maximum_instances();
-	
+
 	my $data = $database_handle->selectrow_hashref(
 		q|
 			SELECT current_instances
@@ -229,7 +229,7 @@ sub get_instances_count
 		if defined( $database_handle->errstr() );
 	croak 'Application not found'
 		unless defined( $data );
-	
+
 	return $data->{'current_instances'};
 }
 
@@ -246,7 +246,7 @@ allowed to run in parallel.
 sub get_maximum_instances
 {
 	my ( $self ) = @_;
-	
+
 	return $self->{'data'}->{'maximum_instances'};
 }
 
@@ -263,11 +263,11 @@ allowed to run in parallel.
 sub set_maximum_instances
 {
 	my ( $self, $maximum_instances ) = @_;
-	
+
 	# Check parameters.
 	croak 'The maximum number of instances needs to be a strictly positive integer'
 		if !Data::Validate::Type::is_number( $maximum_instances, strictly_positive => 1 );
-	
+
 	# Update the application information.
 	my $database_handle = $self->get_database_handle();
 	my $rows_affected = $database_handle->do(
@@ -282,9 +282,9 @@ sub set_maximum_instances
 	);
 	croak 'Cannot execute SQL: ' . $database_handle->errstr()
 		if defined( $database_handle->errstr() );
-	
+
 	$self->{'data'}->{'maximum_instances'} = $maximum_instances;
-	
+
 	return 1;
 }
 
@@ -300,7 +300,7 @@ Returns the name of the current application.
 sub get_name
 {
 	my ( $self ) = @_;
-	
+
 	return $self->{'data'}->{'name'};
 }
 
@@ -316,7 +316,7 @@ Returns the internal ID of the current application.
 sub get_id
 {
 	my ( $self ) = @_;
-	
+
 	return $self->{'data'}->{'ipc_concurrency_application_id'};
 }
 
@@ -334,7 +334,7 @@ Returns the database handle used for this object.
 sub get_database_handle
 {
 	my ( $self ) = @_;
-	
+
 	return $self->{'database_handle'};
 }
 

@@ -82,7 +82,7 @@ foreach my $test ( @$tests )
 		sub
 		{
 			plan( tests => 2 );
-			
+
 			my $application;
 			my $test_sub =
 			sub
@@ -91,7 +91,7 @@ foreach my $test ( @$tests )
 					%{ $test->{'new_args'} },
 				);
 			};
-			
+
 			if ( $test->{'expected_result'} eq 'success' )
 			{
 				lives_ok(
