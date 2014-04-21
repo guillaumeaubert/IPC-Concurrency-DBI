@@ -3,19 +3,19 @@ abstract: 'Control how many instances of an application run in parallel, using D
 author:
   - 'Guillaume Aubert <aubertg@cpan.org>'
 build_requires:
-  DBD::SQLite: 0
-  DBI: 0
-  Test::Exception: 0
-  Test::FailWarnings: 0
-  Test::More: 0
+  DBD::SQLite: '0'
+  DBI: '0'
+  Test::Exception: '0'
+  Test::FailWarnings: '0'
+  Test::More: '0'
 configure_requires:
-  Module::Build: 0
+  Module::Build: '0'
 dynamic_config: 1
-generated_by: 'Module::Build version 0.4005, CPAN::Meta::Converter version 2.131560'
-license: open_source
+generated_by: 'Module::Build version 0.4205, CPAN::Meta::Converter version 2.140640'
+license: gpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: IPC-Concurrency-DBI
 no_index:
   file:
@@ -31,10 +31,10 @@ provides:
     file: lib/IPC/Concurrency/DBI/Application/Instance.pm
     version: v1.1.2
 requires:
-  Carp: 0
-  Data::Dumper: 0
-  Data::Validate::Type: 0
-  perl: 5.006
+  Carp: '0'
+  Data::Dumper: '0'
+  Data::Validate::Type: '0'
+  perl: '5.006'
 resources:
   bugtracker: https://github.com/guillaumeaubert/IPC-Concurrency-DBI/issues
   homepage: https://metacpan.org/release/IPC-Concurrency-DBI
