@@ -120,7 +120,7 @@ Mandatory, a DBI object.
 
 =item * verbose
 
-Optional, see verbose() for options.
+Optional, see C<set_verbose()> for options.
 
 =back
 
@@ -427,20 +427,6 @@ sub set_verbose
 	$self->{'verbose'} = ( $verbose || 0 );
 
 	return;
-}
-
-
-=head1 DEPRECATED METHODS
-
-=head2 verbose()
-
-Please use C<get_verbose()> and C<set_verbose()> instead.
-
-=cut
-
-sub verbose
-{
-	croak 'verbose() has been deprecated, please use get_verbose() / set_verbose() instead.';
 }
 
 
