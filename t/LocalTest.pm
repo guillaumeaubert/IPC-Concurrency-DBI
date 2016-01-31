@@ -119,7 +119,7 @@ this module and brainstorming with me about the features it should offer.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2011-2015 Guillaume Aubert.
+Copyright 2011-2016 Guillaume Aubert.
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License version 3 as published by the Free
