@@ -4,6 +4,7 @@ IPC-Concurrency-DBI
 [![Build Status](https://travis-ci.org/guillaumeaubert/IPC-Concurrency-DBI.svg?branch=master)](https://travis-ci.org/guillaumeaubert/IPC-Concurrency-DBI)
 [![Coverage Status](https://coveralls.io/repos/guillaumeaubert/IPC-Concurrency-DBI/badge.svg?branch=master)](https://coveralls.io/r/guillaumeaubert/IPC-Concurrency-DBI?branch=master)
 [![CPAN](https://img.shields.io/cpan/v/IPC-Concurrency-DBI.svg)](https://metacpan.org/release/IPC-Concurrency-DBI)
+[![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 
 IPC::Concurrency::DBI controls how many instances of a given application are
 allowed to run in parallel, using DBI as the IPC method.
