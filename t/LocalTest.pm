@@ -119,7 +119,7 @@ this module and brainstorming with me about the features it should offer.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2011-2016 Guillaume Aubert.
+Copyright 2011-2017 Guillaume Aubert.
 
 This code is free software; you can redistribute it and/or modify it under the
 same terms as Perl 5 itself.
