@@ -17,11 +17,11 @@ IPC::Concurrency::DBI::Application - Application identifier that represents the 
 
 =head1 VERSION
 
-Version 1.1.3
+Version 1.2.0
 
 =cut
 
-our $VERSION = '1.1.3';
+our $VERSION = '1.2.0';
 
 
 =head1 SYNOPSIS

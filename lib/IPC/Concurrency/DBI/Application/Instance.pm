@@ -14,11 +14,11 @@ IPC::Concurrency::DBI::Application::Instance - Application instance that represe
 
 =head1 VERSION
 
-Version 1.1.3
+Version 1.2.0
 
 =cut
 
-our $VERSION = '1.1.3';
+our $VERSION = '1.2.0';
 
 
 =head1 SYNOPSIS

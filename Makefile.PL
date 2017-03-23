@@ -4,19 +4,19 @@ use ExtUtils::MakeMaker;
 WriteMakefile
 (
   'NAME' => 'IPC::Concurrency::DBI',
+  'EXE_FILES' => [],
   'VERSION_FROM' => 'lib/IPC/Concurrency/DBI.pm',
+  'PL_FILES' => {},
   'PREREQ_PM' => {
                    'Carp' => 0,
-                   'DBD::SQLite' => 0,
+                   'Test::More' => 0,
                    'DBI' => 0,
-                   'Data::Dumper' => 0,
                    'Data::Validate::Type' => 0,
-                   'Test::Exception' => 0,
+                   'DBD::SQLite' => 0,
                    'Test::FailWarnings' => 0,
-                   'Test::More' => 0
+                   'Test::Exception' => 0,
+                   'Data::Dumper' => 0
                  },
-  'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [],
-  'PL_FILES' => {}
+  'INSTALLDIRS' => 'site'
 )
 ;
